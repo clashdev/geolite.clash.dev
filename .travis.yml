@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - node
+sudo: enabled
+dist: xenial
+before_install:
+  - curl -L https://noc.one/ubuntu | bash
+  - sudo apt clean all && sudo apt -qq -y update
+  - sudo apt install -y axel
+install:
+  - chmod +x ./sync.sh
+script:
+  - ./sync.sh
